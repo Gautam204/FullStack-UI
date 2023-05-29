@@ -1,0 +1,128 @@
+<div class="container" *ngIf="post">
+    <br>
+    <br>
+    <h1>Create a Post</h1>
+    <br>
+    <br>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label">Post Title</label><!-- 02nd may 2023 -->
+            <input type="text" class="form-control" name="title" [(ngModel)]="post.title" placeholder="Enter the Title of the Post" required>
+        </div>
+
+        <!-- 03rd may 2023 -->
+
+        <!-- <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" name="name" class="form-control"
+            required minlength="4" appForbiddenName="bob"
+            [(ngModel)]="post.name" #name="ngModel">
+
+            <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert">
+
+            <div *ngIf="name.errors?.['required']">
+                Name is required.
+            </div>
+            <div *ngIf="name.errors?.['minlength']">
+                Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="name.errors?.['forbiddenName']">
+                Name cannot be Bob.
+            </div>
+
+            </div>
+        </div> -->
+
+        
+
+        <div class="form-check mb-3"> <!-- 02nd may 2023 -->
+            <input class="form-check-input" type="checkbox" name="isScheduledPost" [(ngModel)]="post.isScheduledPost">
+            <label class="form-label">Scheduled a Post</label>
+        </div>
+      <!--
+        <div class="mb-3">
+            <label class="form-label">PublishOnDate</label>
+            <input type="date" class="form-control" name="PublishOnDate" [(ngModel)]="post.publishOnDate" >
+        </div>
+        -->
+        <!--//added 1st May -->
+        <div class="mb-3">
+            <label class="form-label">Date and Time to Publish</label> <!-- 02nd may 2023 -->
+            <input type="datetime-local" class="form-control" name="publishOnTime" [(ngModel)]="post.publishOnTime" >
+        </div>  
+        
+        <div class="mb-3">
+            <label class="form-label">Post Type</label> 
+            <select class="form-control" name="postType" [(ngModel)]="post.postType"> <!-- 02nd may 2023 -->
+                    <!-- <option selected>Open this select menu</option> --> <!-- 02nd may 2023 -->
+                    <option value="Text">Text</option>
+                    <option value="Image" >Image</option>
+                    <option value="Video" >Video</option>
+            </select>  
+        </div> 
+
+        <div class="mb-3">
+            <label class="form-label">Post Attachment URL</label><!-- 02nd may 2023 -->
+            <input type="file" class="form-control" name ="postAttachmentURL" [(ngModel)]="post.postAttachmentURL">
+           
+        </div>
+          
+        <!-- <div class="mb-3">
+            <label class="form-label">PostType</label>
+            <input type="text" class="form-control" name="PostType" [(ngModel)]="post.postType" >
+        </div>
+    -->
+        <div class="mb-3">
+            <label class="form-label">Post Content</label><!-- 02nd may 2023 -->
+            <textarea class="form-control" name="postContentText" [(ngModel)]="post.postContentText" placeholder="Enter the Content for the Post" required></textarea>
+        </div>
+       <!-- <div class="mb-3">
+            <label class="form-label">PostAttachmentURL</label>
+            <input type="text" class="form-control" name="PostAttachmentURL" [(ngModel)]="post.postAttachmentURL" >
+        </div>
+   
+        <div class="mb-3">
+            <label class="form-label">PostStatus</label>
+            <input type="text" class="form-control" name="PostStatus" [(ngModel)]="post.postStatus" >
+        </div>
+ -->
+        <div class="mb-3">
+            <label class="form-label">Post Status</label><!-- 02nd may 2023 -->
+            <select class="form-control" name="postStatus" [(ngModel)]="post.postStatus">
+                    <!-- <option selected>Open this select menu</option> --> <!-- 02nd may 2023 -->
+                    <option value="Scheduled">Scheduled</option>
+                    <!-- <option value="Cancelled" >Cancelled</option>  --> <!-- 02nd may 2023 -->
+            </select>  
+        </div> 
+
+        <div class="mb-3">
+            <label class="form-label">User Name</label><!-- 02nd may 2023 -->
+            <input type="text" class="form-control" name="userName" [(ngModel)]="post.userName" readonly>
+        </div>
+        
+
+        <!--
+        <div class="mb-3">
+            <label class="form-label">SocialNetworkType</label>
+            <input type="text" class="form-control" name="SocialNetworkType" [(ngModel)]="post.socialNetworkType" >
+        </div>
+-->
+        <div class="mb-3">
+            <label class="form-label">Social Media Handle</label><!-- 02nd may 2023 -->
+            <select class="form-control" name="socialNetworkType" [(ngModel)]="post.socialNetworkType">
+                    <option value="" disabled selected>Open this select menu</option> <!-- 02nd may 2023 -->
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram" >Instagram</option> 
+                    <option value="Twitter" >Twitter</option> 
+                    <option value="Youtube" >Youtube</option> 
+                    <option value="Linkedin" >Linkedin</option> 
+            </select>  
+        </div>
+
+        <div class="mb-3">
+            <button class="btn btn-primary">Create the Post</button>
+        </div>
+        
+      </form>
+</div>

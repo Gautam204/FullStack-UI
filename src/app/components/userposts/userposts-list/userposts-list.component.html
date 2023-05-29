@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1 class="mb-3">UserPosts</h1>
+
+    <table class="table" *ngIf="posts && posts.length > 0">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>PostType</th>
+                <th>PostAttachmentURL</th>
+                <th>PostStatus</th>
+                <th>UserName</th>
+                <th>SocialNetworkType</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let post of posts">
+                <td>{{ post.title }}</td>
+                <td>{{ post.postType }}</td>
+                <td>{{ post.postAttachmentURL }}</td>
+                <td>{{ post.postStatus }}</td>
+                <td>{{ post.userName }}</td>
+                <td>{{ post.socialNetworkType }}</td>
+                <td>
+                    <a [routerLink]="['/admin/posts', post.id]">View</a>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    <p *ngIf="!posts || posts.length <= 0">No UserPosts Found</p>
+
+</div>

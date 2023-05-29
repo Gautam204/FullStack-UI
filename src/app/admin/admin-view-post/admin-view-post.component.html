@@ -1,0 +1,83 @@
+<div class="container" *ngIf="post">
+    <br>
+    <br>
+    <h1>View and Update Post</h1>
+    <br>
+    <br>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label class="form-label">Post Id</label>
+            <input type="text" class="form-control" name="id" [(ngModel)]="post.id" readonly>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Post Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="post.title" >
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Post Created On</label>
+            <input type="text" class="form-control" name="postedOn" [(ngModel)]="post.postedOn" readonly>
+        </div>
+        <!--
+        <div class="mb-3">
+            <label class="form-label">PublishOnDate</label>
+            <input type="text" class="form-control" name="PublishOnDate" [(ngModel)]="post.publishOnDate" >
+        </div>
+        -->
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" name="isScheduledPost" [(ngModel)]="post.isScheduledPost">
+            <label class="form-check-label">
+                Scheduled a Post
+            </label>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Date and Time to Publish</label>
+            <input type="datetime-local" class="form-control" name="publishOnTime" [(ngModel)]="post.publishOnTime" >
+        </div> <!-- 02nd may 2023 -->
+          
+        <div class="mb-3"> <!-- 02nd may 2023 -->
+            <label class="form-label">Post Type</label>
+            <select class="form-control" name="postType" [(ngModel)]="post.postType">
+                    <option value="Text">Text</option>
+                    <option value="Image" >Image</option>
+                    <option value="Video" >Video</option>
+            </select>  
+        </div> 
+        <div class="mb-3">
+            <label class="form-label">Post Content</label>
+            <textarea class="form-control" name="postContentText" [(ngModel)]="post.postContentText"></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Post Attachment Url</label>
+            <input type="text" class="form-control" name="postAttachmentURL" [(ngModel)]="post.postAttachmentURL" readonly>
+        </div>
+        <div class="mb-3"> <!-- 02nd may 2023 -->
+            <label class="form-label">Post Status</label>
+            <select class="form-control" name="postStatus" [(ngModel)]="post.postStatus">
+                    <!-- <option selected>Open this select menu</option> -->
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Cancelled" >Cancelled</option> 
+            </select>  
+        </div>
+        <div class="mb-3">
+            <label class="form-label">User Name</label>
+            <input type="text" class="form-control" name="userName" [(ngModel)]="post.userName" readonly>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Social Media Handle</label>
+            <select class="form-control" name="socialNetworkType" [(ngModel)]="post.socialNetworkType">
+                    <!-- <option selected>Open this select menu</option> --> <!-- 02nd may 2023 -->
+                    <option value="Facebook">Facebook</option>
+                    <option value="Instagram" >Instagram</option> 
+                    <option value="Twitter" >Twitter</option> 
+                    <option value="Youtube" >Youtube</option> 
+                    <option value="Linkedin" >Linkedin</option> 
+            </select>  
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-primary">Update the Post</button>
+            <a class="btn btn-danger" style="margin-left: 20px;" (click)="deletePost()">Delete the Post</a>
+        </div>
+        
+      </form>
+</div>
